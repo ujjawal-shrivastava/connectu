@@ -15,7 +15,7 @@ export default function NavUser() {
             <li><Link to="/settings" className="dropdown-item">Settings</Link></li>
             <li><Link to="/help" className="dropdown-item">Need Help?</Link></li>
             <li><hr className="dropdown-divider bg-grey"/></li>
-            <li><Link className="dropdown-item fw-bold">Logout</Link></li>
+            <li><button className="dropdown-item fw-bold">Logout</button></li>
           </ul>
         </li>
         </>
