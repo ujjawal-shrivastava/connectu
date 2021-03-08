@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../context'
-import { useHistory } from "react-router-dom"
 
 export default function Premium() {
-    const history = useHistory()
     const authContext = useContext(AuthContext)
     if (!authContext.user.paid) return (
         <div className="container-fluid d-flex flex-column bg-white m-0 p-0 vh-100 justify-content-center align-items-center">

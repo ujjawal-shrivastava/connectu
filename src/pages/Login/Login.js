@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react"
-import { Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import logo from "../../assets/images/logo.svg"
 import AuthContext from "../../context"
 import './Login.css'
 
 
-export default function Login() {
+export default function Login(props) {
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -42,7 +42,7 @@ export default function Login() {
         setState({email:"",password:"",remember:false,error:""})
     }
 
-    if(authContext.isLoggedIn) return (<Redirect to="/profile" />)
+    if(authContext.isLoggedIn) return (<Redirect to={(props.location.state?props.location.state.next:"/feed")} />)
 
     return (
         <div className="container-fluid d-flex flex-row justify-content-center align-items-center m-0 p-0 vh-100 background">
@@ -73,7 +73,7 @@ export default function Login() {
                 </form>
                 <div className="w-100 mt-5 d-flex flex-row justify-content-between">
                     <div>
-                        <p className="text-muted">Need Help? <a className="text-reset" href="#" target="_blank" rel="noopener noreferrer">Contact Administrator</a></p>
+                        <p className="text-muted">Need Help? <Link className="text-reset" to="/help">Contact Administrator</Link></p>
                     </div>
                     <div>
                     </div>

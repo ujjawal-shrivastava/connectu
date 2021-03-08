@@ -12,6 +12,7 @@ import Premium from "./pages/Premium/Premium";
 import NotFound from "./pages/404/404";
 import Feed from "./pages/Feed/Feed";
 import Navbar from "./components/Navbar/Navbar";
+import RequireLogin from "./components/RequireLogin/RequireLogin";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false)
@@ -33,30 +34,29 @@ function App() {
 
   const logout = () => {
     setLoggedIn(false)
-    setUser({ name: "", email:"", paid:"",type:"" })
+    setUser({ name: "", email: "", paid: "", type: "" })
+    window.location.pathname = "/login"
   }
 
   return (
     <AuthContext.Provider value={{ isLoggedIn: isLoggedIn, login: login, logout: logout, user: user }}>
       <React.Fragment>
         <Router>
-        <Navbar></Navbar>
+          <Navbar></Navbar>
           <Switch>
             <Route path="/" exact>
               <h1>Yo</h1>
             </Route>
-            <Route path="/login" exact>
-              <Login />
-            </Route>
-            <Route path="/feed" exact>
-              <Feed />
-            </Route>
-            <Route path="/profile" exact>
+            <Route path="/login" exact render={(props)=>(<Login {...props} />)}/>
+            <RequireLogin path="/profile" exact={true}>
               <Profile />
-            </Route>
-            <Route path="/premium" exact>
+            </RequireLogin>
+            <RequireLogin path="/premium" exact={true}>
               <Premium />
-            </Route>
+            </RequireLogin>
+            <RequireLogin to="/feed" exact={true}>
+              <Feed />
+            </RequireLogin>
             <Route path="/gallery" exact>
               <h1>Gallery</h1>
             </Route>
@@ -66,7 +66,7 @@ function App() {
           </Switch>
         </Router>
       </React.Fragment>
-    </AuthContext.Provider>
+    </AuthContext.Provider >
   );
 }
 
