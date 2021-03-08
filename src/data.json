@@ -1,0 +1,24 @@
+{
+    "users": [{
+            "name": "Ujjawal Shrivastava",
+            "email": "student@test.com",
+            "password": "1234",
+            "paid": false,
+            "type": "STUDENT"
+        },
+        {
+            "name": "Tony Stark",
+            "email": "alumni@test.com",
+            "password": "1234",
+            "paid": true,
+            "type": "ALUMNI"
+        },
+        {
+            "name": "Abc Xyz",
+            "email": "teacher@test.com",
+            "password": "1234",
+            "paid": true,
+            "type": "TEACHER"
+        }
+    ]
+}
