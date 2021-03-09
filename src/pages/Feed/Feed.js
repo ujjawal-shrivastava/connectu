@@ -1,6 +1,7 @@
 import React from 'react'
 import FeaturedPost from './Components/FeaturedPost/FeaturedPost'
 import News from './Components/News/News'
+import Post from './Components/Post/Post'
 import SearchBar from './Components/SearchBar/SearchBar'
 import WritePost from './Components/WritePost/WritePost'
 
@@ -14,6 +15,16 @@ export default function Feed() {
                 <div className="w-100 d-flex flex-column align-items-center">
                     <SearchBar />
                     <WritePost />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
                 </div>
             </div>
             <div className="px-4 py-3" style={{ width: "20%" }}>
