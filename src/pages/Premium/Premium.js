@@ -4,7 +4,7 @@ import AuthContext from '../../context'
 export default function Premium() {
     const authContext = useContext(AuthContext)
     if (!authContext.user.paid) return (
-        <div className="container-fluid d-flex flex-column bg-white m-0 p-0 vh-100 justify-content-center align-items-center">
+        <div className="container-fluid d-flex flex-column bg-white m-0 p-4 h-100 justify-content-center align-items-center">
             <img className="mb-4" src="https://icon-library.com/images/error-icon-transparent/error-icon-transparent-13.jpg" alt="" srcset="" width={150} />
             <h1 className="h1">You are not authorized to access this page!</h1>
             <p>Enroll for paid subscription to access this page..!</p>

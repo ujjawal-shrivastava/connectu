@@ -3,9 +3,14 @@ import { Redirect, Route } from 'react-router'
 import AuthContext from '../../context'
 export default function RequireLogin(props) {
     const authContext = useContext(AuthContext)
+    if (authContext.isLoggedIn()) return (
+        <Route path={props.to} exact={props.exact}>
+            {props.children}
+        </Route>
+    )
     return (
         <Route path={props.to} exact={props.exact}>
-            {authContext.isLoggedIn?props.children:<Redirect to={{pathname:"/login", state:{next:props.to}}} />}
+            <Redirect to={{ pathname: "/login", state: { next: props.to } }} />
         </Route>
     )
 }

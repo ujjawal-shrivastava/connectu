@@ -42,7 +42,7 @@ export default function Login(props) {
         setState({email:"",password:"",remember:false,error:""})
     }
 
-    if(authContext.isLoggedIn) return (<Redirect to={(props.location.state?props.location.state.next:"/feed")} />)
+    if(authContext.isLoggedIn()) return (<Redirect to={(props.location.state?props.location.state.next:"/feed")} />)
 
     return (
         <div className="container-fluid d-flex flex-row justify-content-center align-items-center m-0 p-0 vh-100 background">

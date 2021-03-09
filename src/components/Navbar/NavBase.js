@@ -32,9 +32,9 @@ export default function NavBase(props) {
                 <div className="d-flex justify-content-evenly text-white align-items-center">
                     <ul className="nav d-flex align-items-center">
                         {props.children}
-                        {authContext.isLoggedIn?<NavUser />:<></>}
+                        {authContext.isLoggedIn()?<NavUser />:<></>}
                     </ul>
-                    {!authContext.isLoggedIn?<Link to="/login" type="button" className="btn btn-success px-5 ms-3 fw-bold">Login</Link>:<></>}
+                    {!authContext.isLoggedIn()?<Link to="/login" type="button" className="btn btn-success px-5 ms-3 fw-bold">Login</Link>:<></>}
                     <Link to="/premium" type="button" className="btn btn-danger ms-3 fw-bold px-3"><FontAwesomeIcon icon={faRupeeSign} /><span className="ms-1">Get Premium</span></Link>
                 </div>
             </div>
