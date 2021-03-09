@@ -35,7 +35,7 @@ export default function NavBase(props) {
                         {authContext.isLoggedIn()?<NavUser />:<></>}
                     </ul>
                     {!authContext.isLoggedIn()?<Link to="/login" type="button" className="btn btn-success px-5 ms-3 fw-bold">Login</Link>:<></>}
-                    <Link to="/premium" type="button" className="btn btn-danger ms-3 fw-bold px-3"><FontAwesomeIcon icon={faRupeeSign} /><span className="ms-1">Get Premium</span></Link>
+                    {authContext.isLoggedIn()?<Link to="/premium" type="button" className="btn btn-danger ms-3 fw-bold px-3"><FontAwesomeIcon icon={faRupeeSign} /><span className="ms-1">Get Premium</span></Link>:<></>}
                 </div>
             </div>
         </nav>

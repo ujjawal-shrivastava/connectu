@@ -1,16 +1,12 @@
 import React, { useContext } from 'react'
 import { Redirect, Route } from 'react-router'
 import AuthContext from '../../context'
-export default function RequireLogin(props) {
+export default function RequireLogin({path,component:Component ,exact}) {
     const authContext = useContext(AuthContext)
-    if (authContext.isLoggedIn()) return (
-        <Route path={props.to} exact={props.exact}>
-            {props.children}
-        </Route>
-    )
     return (
-        <Route path={props.to} exact={props.exact}>
-            <Redirect to={{ pathname: "/login", state: { next: props.to } }} />
-        </Route>
+        <Route path={path} exact={exact} render={(props)=>{
+            if (authContext.isLoggedIn()) return (<Component />)
+            else return (<Redirect to={{ pathname: "/login", state: { next: path } }} />)
+        }} />
     )
 }

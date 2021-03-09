@@ -7,7 +7,7 @@ export default function Profile() {
     const authContext = useContext(AuthContext)
 
     return (
-        <div className="container-fluid d-flex flex-column bg-white m-0 p-0 h-100 justify-content-center align-items-center pt-5">
+        <div className="container-fluid d-flex flex-column m-0 p-0 h-100 justify-content-center align-items-center pt-5">
             <img className="mb-4" src={`https://ui-avatars.com/api/?name=${encodeURI(authContext.user.name)}&rounded=true&background=random`} alt="" srcset="" width={150} />
             <h1 className="h1">{authContext.user.name}</h1>
             <p className="h5">{authContext.user.email}</p>
