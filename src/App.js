@@ -13,6 +13,7 @@ import NotFound from "./pages/404/404";
 import Feed from "./pages/Feed/Feed";
 import Navbar from "./components/Navbar/Navbar";
 import RequireLogin from "./components/RequireLogin/RequireLogin";
+import Gallery from "./pages/Gallery/Gallery";
 
 function App() {
   const [user, setUser] = useState({ name: "", email: "", paid: "", teacher: "" })
@@ -72,7 +73,7 @@ function App() {
               <h1>Home</h1>
             </Route>
             <Route path="/gallery" exact>
-              <h1>Gallery</h1>
+              <Gallery />
             </Route>
             <Route path="/about" exact>
               <h1>About</h1>
